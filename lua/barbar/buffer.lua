@@ -145,9 +145,10 @@ function buffer.get_unique_names(buffer_numbers)
   local update_computed_names = function()
     computed_names = map(function(buffer_number)
       local name = buffer.get_name(buffer_number, depth)
-      local parts = split(name, separator)
-      local computed_name = table_concat(list.slice_from_end(parts, depth), separator)
-      return computed_name
+      return name
+      -- local parts = split(name, separator)
+      -- local computed_name = table_concat(list.slice_from_end(parts, depth), separator)
+      -- return computed_name
     end, buffer_numbers)
   end
 
