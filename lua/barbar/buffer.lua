@@ -92,8 +92,9 @@ function buffer.get_name(buffer_number, depth)
   if name ~= '' then
     local full_name = buf_get_option(buffer_number, 'buftype') == 'terminal' and
       terminalname(name) or (hide_extensions and fnamemodify(name, ':t') or name)
-    local parts = split(full_name, separator)
-    name = table_concat(list.slice_from_end(parts, depth), separator)
+    name = full_name
+    -- local parts = split(full_name, separator)
+    -- name = table_concat(list.slice_from_end(parts, depth), separator)
   elseif no_name_title ~= nil and no_name_title ~= vim.NIL then
     name = no_name_title
   end
